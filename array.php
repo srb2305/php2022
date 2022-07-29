@@ -24,7 +24,7 @@
 		'roll_number' => '10001',
 		'email'=>'ram@gmail.com'
 	];
-
+	print_r($user1);
 	$user2 = [
 		'name'=>'shyam',
 		'roll_number' => '10002',
@@ -39,4 +39,40 @@
 	array_push($allData,$user1);
 	array_push($allData,$user2);
 	print_r($allData);
+?> <br>--------------------------<br>
+<h2>Multidimensional Array</h2>
+
+<?php 
+$myarray = [];
+	$personalData = [
+		'roll_number' => 10001,
+		'name' => 'ram',
+		'hobbies' => [],
+		'contact' => '8989898989',
+		'email' => 'ram@gmail.com',
+	];
+
+	$hobbies = [
+			'roll_number' => 10001,
+			'hobbies1' => 'cricket',
+			'hobbies2' => 'dancing',
+			'hobbies3' => 'teaching'
+	];
+	$hobbies2 = [
+			'roll_number' => 10001,
+			'hobbies1' => 'cricket',
+			'hobbies2' => 'dancing',
+			'hobbies3' => 'teaching'
+	];
+	array_push($personalData['hobbies'], $hobbies);
+	array_push($personalData['hobbies'], $hobbies2);
+
+echo '<pre>';
+print_r($personalData);
+// print_r($personalData);
+// print_r($hobbies);
+// echo '<br>';
+// array_push($myarray,$personalData);
+// print_r($myarray);
+
 ?>
