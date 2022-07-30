@@ -8,6 +8,7 @@
 <?php 
 	$i = 10;
 	$j = 0;
+
 	while ($j <= $i) {
 		echo $j++;
 	}
@@ -42,5 +43,47 @@
 
 <h2>ForEach</h2>
 <?php 
-	
+	$myData = [
+				[
+					'name' => 'ram',
+					'email' => 'ram@gmail.com',
+					'contact' => '787878787',
+					'rollnumber' => '1001',
+				],
+				[
+					'name' => 'shyam',
+					'email' => 'shyam@gmail.com',
+					'contact' => '9898989898',
+					'rollnumber' => '',
+				],
+				[
+					'name' => 'mohan',
+					'email' => 'mohan@gmail.com',
+					'contact' => '4545454545',
+					'rollnumber' => '858',
+				]
+		];
+	echo "<pre>";
+	//print_r($myData[1]['email']);
+
+	foreach ($myData as $key => $value) {
+		echo($value['name'].' '); 
+		echo($value['email'].' '); 
+		echo($value['contact'].'<br>'); 
+	}
 ?>
+
+<table border="1">
+	<?php
+	foreach ($myData as $key => $value) {
+	echo    '<tr>
+				<td>'.$value['name'].'</td>
+				<td>'.$value['email'].'</td>
+				<td>'.$value['contact'].'</td>
+				<td>'.$value['rollnumber'].'</td>
+				<td>delete</td>
+			</tr>';	
+	}
+	?>
+	
+</table>
