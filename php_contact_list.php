@@ -5,6 +5,11 @@ $result = mysqli_query($con, $query);
 ?>
 
 <h1>Contact List</h1>
+<?php 
+if(isset($_GET['msg'])){
+	echo  '<h2 style="color:red">'.$_GET['msg'].'</h2>';
+}
+?>
 <table border="1">
 	<thead>
 		<th>S/no</th>
@@ -13,7 +18,7 @@ $result = mysqli_query($con, $query);
 		<th>Email</th>
 		<th>Action</th>
 	</thead>
-	<tbody>
+	<tbo   dy>
 	<?php 
 		$i = 1;
 		while($row = mysqli_fetch_assoc($result)){

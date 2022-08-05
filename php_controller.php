@@ -11,12 +11,12 @@ if(isset($_POST['contact_add'])){
 
 	$result = mysqli_query($con,$query);
 	if($result){
-		echo "Inserted successfully";
+		$msg = "Inserted successfully";
 	}else{
-		echo "Not inserted";
+		$msg = "Not inserted";
 	}
 
-	header('location:php_contact_add.php');
+	header('location:php_contact_add.php?msg='.$msg);
 }
 
 if( isset($_GET['contact_delete']) ){
@@ -25,12 +25,12 @@ if( isset($_GET['contact_delete']) ){
 
  	$result = mysqli_query($con,$query);
 	if($result){
-		echo "Deelted successfully";
+		$msg = "Delted successfully";
 	}else{
-		echo "Not deleted";
+		$msg = "Not deleted";
 	}
 
-	header('location:php_contact_list.php');
+	header('location:php_contact_list.php?msg='.$msg);
 
 }
 

@@ -1,4 +1,9 @@
 <h1>Contact</h1>
+<?php 
+if(isset($_GET['msg'])){
+	echo  '<h2 style="color:green">'.$_GET['msg'].'</h2>';
+}
+?>
 <form action="php_controller.php" method="POST">
 	Full Name : <input type="text" name="full_name" required=""> <br>
 	Contact : <input type="number" name="contact_number"> <br>
