@@ -19,5 +19,19 @@ if(isset($_POST['contact_add'])){
 	header('location:php_contact_add.php');
 }
 
+if( isset($_GET['contact_delete']) ){
+ 	$id = $_GET['contact_delete'];
+ 	$query = "delete from `contacts` where `id`='$id'";
+
+ 	$result = mysqli_query($con,$query);
+	if($result){
+		echo "Deelted successfully";
+	}else{
+		echo "Not deleted";
+	}
+
+	header('location:php_contact_list.php');
+
+}
 
 ?>
