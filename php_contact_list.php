@@ -1,4 +1,7 @@
-<?php  include('php_database.php'); 
+<?php 
+ include_once('menu.php');
+
+ include('php_database.php'); 
 
 $query = "select * from `contacts`";
 $result = mysqli_query($con, $query);
@@ -30,6 +33,10 @@ if(isset($_GET['msg'])){
 				<td><?php echo $row['email'];  ?></td>
 				<td>
 					<a href="php_controller.php?contact_delete=<?php echo $row['id']; ?>">Delete</a>
+				</td>
+				<td>
+					<a href="php_contact_edit.php?id=<?php echo $row['id']; ?>">
+					Edit </a>
 				</td>
 			</tr>
 	<?php 	} 	?>	
