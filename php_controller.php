@@ -6,8 +6,15 @@ if(isset($_POST['contact_add'])){
 	$contact = $_POST['contact_number'];
 	$email = $_POST['email_id'];
 	$message = $_POST['message'];
+	
+	// ----- code start for file upload -----
+	$image_name = $_FILES['user_image']['name'];
+	$temp_path = $_FILES['user_image']['tmp_name'];
+	$destinationPath = './uploads/'.$image_name;
 
-	$query = "insert into `contacts` (`first_name`,`mobile`,`email`,`message`) values('$name','$contact','$email','$message')";
+	move_uploaded_file($temp_path, $destinationPath);
+	// --------------------------------------
+	$query = "insert into `contacts` (`first_name`,`mobile`,`email`,`message`,`image`) values('$name','$contact','$email','$message','$image_name')";
 
 	$result = mysqli_query($con,$query);
 	if($result){

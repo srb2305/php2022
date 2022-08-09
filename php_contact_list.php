@@ -16,6 +16,7 @@ if(isset($_GET['msg'])){
 <table border="1">
 	<thead>
 		<th>S/no</th>
+		<th>Image</th>
 		<th>Full Name</th>
 		<th>Mobile</th>
 		<th>Email</th>
@@ -28,6 +29,10 @@ if(isset($_GET['msg'])){
 	?>		
 			<tr>
 				<td><?php echo $i++; ?></td>
+				<td>
+					<img src="uploads/<?php echo $row['image'] ?>" style="width: 50px;" alt="image">
+					
+				</td>
 				<td><?php echo $row['first_name'].' '.$row['last_name']; ?></td>
 				<td><?php echo $row['mobile']; ?></td>
 				<td><?php echo $row['email'];  ?></td>
