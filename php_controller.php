@@ -6,6 +6,7 @@ if(isset($_POST['contact_add'])){
 	$contact = $_POST['contact_number'];
 	$email = $_POST['email_id'];
 	$message = $_POST['message'];
+	$country_id = $_POST['country_id'];
 	
 	// ----- code start for file upload -----
 	$image_name = $_FILES['user_image']['name'];
@@ -14,7 +15,7 @@ if(isset($_POST['contact_add'])){
 
 	move_uploaded_file($temp_path, $destinationPath);
 	// --------------------------------------
-	$query = "insert into `contacts` (`first_name`,`mobile`,`email`,`message`,`image`) values('$name','$contact','$email','$message','$image_name')";
+	$query = "insert into `contacts` (`first_name`,`mobile`,`email`,`message`,`image`,`country_id`) values('$name','$contact','$email','$message','$image_name','$country_id')";
 
 	$result = mysqli_query($con,$query);
 	if($result){
@@ -23,7 +24,7 @@ if(isset($_POST['contact_add'])){
 		$msg = "Not inserted";
 	}
 
-	header('location:php_contact_add.php?msg='.$msg);
+	header('location:php_contact_list.php?msg='.$msg);
 }
 
 if(isset($_POST['contact_update'])){

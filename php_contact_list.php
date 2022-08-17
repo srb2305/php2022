@@ -20,6 +20,7 @@ if(isset($_GET['msg'])){
 		<th>Full Name</th>
 		<th>Mobile</th>
 		<th>Email</th>
+		<th>Country</th>
 		<th>Action</th>
 	</thead>
 	<tbo   dy>
@@ -32,16 +33,23 @@ if(isset($_GET['msg'])){
 				<td>
 					<img src="uploads/<?php echo $row['image'] ?>" style="width: 50px;" alt="image">
 					
+					<a href="uploads/<?php echo $row['image'] ?>" target="_blank">
+						click here
+					</a>
 				</td>
 				<td><?php echo $row['first_name'].' '.$row['last_name']; ?></td>
 				<td><?php echo $row['mobile']; ?></td>
 				<td><?php echo $row['email'];  ?></td>
+				<td><?php echo $row['country_id'];  ?></td>
 				<td>
 					<a href="php_controller.php?contact_delete=<?php echo $row['id']; ?>">Delete</a>
 				</td>
 				<td>
 					<a href="php_contact_edit.php?id=<?php echo $row['id']; ?>">
 					Edit </a>
+				</td>
+				<td>
+					<a href="php_contact_view.php?id=<?php echo $row['id']; ?>">View</a>
 				</td>
 			</tr>
 	<?php 	} 	?>	

@@ -7,7 +7,7 @@ include('php_database.php');
 if(isset($_GET['id'])){
 	$id = $_GET['id'];
 
-	$qry = "select *from `contacts` where `id`=$id";
+	$qry = "select * from `contacts` where `id`=$id";
 	$result = mysqli_query($con, $qry);
 	$data = mysqli_fetch_assoc($result);
 
