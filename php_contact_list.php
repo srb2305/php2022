@@ -1,9 +1,9 @@
 <?php 
- include_once('menu.php');
+include_once('menu.php');
 
- include('php_database.php'); 
+include('php_database.php'); 
 
-$query = "select * from `contacts`";
+$query = "select contacts.*,country.country_name  from `contacts`  LEFT JOIN `country` ON contacts.country_id = country.id;";
 $result = mysqli_query($con, $query);
 ?>
 
@@ -40,7 +40,7 @@ if(isset($_GET['msg'])){
 				<td><?php echo $row['first_name'].' '.$row['last_name']; ?></td>
 				<td><?php echo $row['mobile']; ?></td>
 				<td><?php echo $row['email'];  ?></td>
-				<td><?php echo $row['country_id'];  ?></td>
+				<td><?php echo $row['country_name'];  ?></td>
 				<td>
 					<a href="php_controller.php?contact_delete=<?php echo $row['id']; ?>">Delete</a>
 				</td>
