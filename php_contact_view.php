@@ -1,3 +1,4 @@
+<?php include('header.php'); ?>
 <style type="text/css">
 	img{
 		width: 200px;
@@ -30,3 +31,6 @@ if(isset($_GET['id'])){
 <?php  echo $name; ?><br>
 <?php  echo $email; ?><br>
 <?php  echo $mobile; ?><br>
+
+
+<?php include('footer.php'); ?>

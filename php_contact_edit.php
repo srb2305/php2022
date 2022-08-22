@@ -1,4 +1,4 @@
-<?php include('menu.php'); ?>
+<?php include('header.php'); ?>
 
 <h1>Contact Edit</h1>
 <?php 
@@ -26,3 +26,4 @@ if(isset($_GET['id'])){
 
 	<input type="submit" name="contact_update" value="Update">
 </form>
+<?php include('footer.php'); ?>
