@@ -1,5 +1,6 @@
 <?php 
 include('php_database.php');
+session_start();
 
 if(isset($_POST['contact_add'])){
 	$name = $_POST['full_name'];
@@ -58,7 +59,26 @@ if( isset($_GET['contact_delete']) ){
 	}
 
 	header('location:php_contact_list.php?msg='.$msg);
-
 }
 
+
+if(isset($_POST['login'])){
+	$username = $_POST['username'];
+
+	$password = $_POST['password'];
+	$qry = "select * from `contacts` where `email` = '$username' and `password`='$password'";
+	$res = mysqli_query($con,$qry);
+	$dataAry = mysqli_fetch_assoc($res);
+	if(!empty($dataAry)){
+		//  session start 
+		$_SESSION['email'] = $username;
+		$_SESSION['username'] = $username;
+		$_SESSION['first_name'] = $username;
+		$_SESSION['contact'] = $username;
+		header('location:profile.php');
+	}else{
+		$msg = "Invalid credentials";
+		header('location:login.php?msg='.$msg);
+	}
+}
 ?>
