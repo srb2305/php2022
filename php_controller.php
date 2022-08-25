@@ -64,17 +64,14 @@ if( isset($_GET['contact_delete']) ){
 
 if(isset($_POST['login'])){
 	$username = $_POST['username'];
-
 	$password = $_POST['password'];
 	$qry = "select * from `contacts` where `email` = '$username' and `password`='$password'";
 	$res = mysqli_query($con,$qry);
 	$dataAry = mysqli_fetch_assoc($res);
 	if(!empty($dataAry)){
 		//  session start 
+		$_SESSION['name'] = $dataAry['first_name'];
 		$_SESSION['email'] = $username;
-		$_SESSION['username'] = $username;
-		$_SESSION['first_name'] = $username;
-		$_SESSION['contact'] = $username;
 		header('location:profile.php');
 	}else{
 		$msg = "Invalid credentials";

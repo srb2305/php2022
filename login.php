@@ -1,4 +1,5 @@
-<h1>Loigin</h1>
+<?php include('header.php'); ?>
+<h1>Login</h1>
 <?php 
 if(isset($_GET['msg'])){
 	echo  '<h2 style="color:red">'.$_GET['msg'].'</h2>';
